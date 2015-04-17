@@ -1,26 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.title %>
-</p>
+
+
+<h1>  <%= @recipe.title %></h1> 
+
+
+ <%= image_tag(@recipe.img_url, :width => 600) if @recipe.img.present? %>
 
 <p>
-  <strong>Img:</strong>
-  <%= @recipe.img %>
-</p>
-
-<p>
-  <strong>Description:</strong>
   <%= @recipe.description %>
 </p>
-
 
 <ul>
  <%- @recipe.ingredients.each do |ingredient| %>
           <li><%= li= ingredient.item %></li>
   <% end %>
 </ul>
+
+
 <p>
   <strong>Direction:</strong>
   <%= @recipe.direction %>
@@ -29,5 +26,6 @@
  
 
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> | 
+<%= link_to 'Destroy', recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', recipes_path %>

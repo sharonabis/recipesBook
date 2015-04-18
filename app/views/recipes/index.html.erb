@@ -1,14 +1,14 @@
 
-<%= link_to 'New Recipe', new_recipe_path %>
-<h1>Listing Recipes</h1>
+<div class="recipes">
 <ul>
   <% @recipes.each do |recipe| %>
-      <li>
-        <%= image_tag(recipe.img_url, :width => 200) if recipe.img.present? %><br>
+      <li  class="thumbnail">
+        <%= image_tag(recipe.img_url, :width => 200) if recipe.img.present? %><br>  
         <%= link_to recipe.title, recipe %>
       </li>
   <% end %>
 </ul>
+</div>
+
 
   
-

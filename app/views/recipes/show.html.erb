@@ -1,31 +1,31 @@
-<p id="notice"><%= notice %></p>
 
-
-
-<h1>  <%= @recipe.title %></h1> 
-
-
- <%= image_tag(@recipe.img_url, :width => 600) if @recipe.img.present? %>
-
-<p>
-  <%= @recipe.description %>
-</p>
-
-<ul>
- <%- @recipe.ingredients.each do |ingredient| %>
+<div class="recipe_header">
+  <%= image_tag(@recipe.img_url, :width => 300) if @recipe.img.present? %>
+  
+  <div class="title">
+    <h1><%= @recipe.title %></h1> 
+    <p><%= @recipe.description %></p>
+  </div>
+</div>
+<div>
+<div class="recipe_details">
+  <div class="ingrediants">
+      <h2>Ingredients</h2>
+      <ul>
+        <%- @recipe.ingredients.each do |ingredient| %>
           <li><%= li= ingredient.item %></li>
-  <% end %>
-</ul>
-
-
-<p>
-  <strong>Direction:</strong>
-  <%= @recipe.direction %>
-</p>
-
+        <% end %>
+      </ul>
+  </div>  
+  <div class="directions">
+    <h2>Directions</h2>
+      <p>
+        <%= @recipe.direction %>
+      </p>
+  </div>
+</div> 
  
-
-
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> | 
-<%= link_to 'Destroy', recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Back', recipes_path %>
+<div class="links">
+  <%= link_to 'Edit', edit_recipe_path(@recipe) %> 
+  <%= link_to 'Delete', recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
